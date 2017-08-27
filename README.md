@@ -36,9 +36,26 @@ Sending a push is a simple as:
 - to your Micropush server endpoint
 - with a JSON payload that follows the convention described below:
 
-# Micropush JSON payload
 
-Here's an example JSON payload for Android:
+# Micropush JSON protocol
+
+The payload contains two attributes:
+
+- type: Either `$push.android` or `$push.ios`
+- options: options to send to micropush. Micropush will interpret this JSON depending on whether it's `$push.android` or `$push.ios`. See the 
+  - to
+  - data
+  - notification
+
+Micropush will interpret the `options` object based on the `type` attribute. See below section for details.
+
+# Micropush options
+
+## Android
+
+In case of Android, the protocol is straight-forward. It completely follows the Firebase Cloud Messaging HTTP protocol: https://firebase.google.com/docs/cloud-messaging/http-server-ref
+
+Here's an example (Notice that the `options` object follows the [FCM Downstream HTTP messages protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref#downstream-http-messages-json) :
 
 ```
 {
@@ -60,6 +77,16 @@ Here's an example JSON payload for Android:
   }
 }
 ```
+
+## iOS
+
+In case of iOS it's not interpreted literally. Instead there are **3 attributes:**
+
+1. **to**: Must contain two sub-attributes "token" and "topic"
+    - token: Device token to send push to
+    - topic: Your app's bundle id
+2. **notification**: This part represents the [aps payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) you send to APNS.
+3. **data**: Custom JSON payload which is accessible as `userInfo` inside [application:didReceiveRemoteNotification:](https://developer.apple.com/documentation/appkit/nsapplicationdelegate/1428430-application)
 
 Here's an example JSON payload for iOS:
 
@@ -85,4 +112,7 @@ Here's an example JSON payload for iOS:
 }
 ```
 
-Check out `/test` folder for examples.
+## Example
+
+- Check out `/test` folder for console based examples.
+- Check out [Micropusher](https://github.com/Jasonette/micropusher) to instantly try on the web
