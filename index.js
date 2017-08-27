@@ -22,11 +22,6 @@ $express.init({
   routes: {
     post: {
       "/": function(req, res){
-        if (req.method === "OPTIONS") {
-          res.header('Access-Control-Allow-Origin', req.headers.origin);
-        } else {
-          res.header('Access-Control-Allow-Origin', '*');
-        }
         let body = req.body;
         let tokens = body.type.split(".")
         let os = tokens[1];
