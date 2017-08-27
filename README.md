@@ -42,10 +42,7 @@ Sending a push is a simple as:
 The payload contains two attributes:
 
 1. **type**: Either `$push.android` or `$push.ios`
-2. **options**: options to send to micropush. Micropush will interpret this JSON depending on whether it's `$push.android` or `$push.ios`. See the 
-    - to
-    - data
-    - notification
+2. **options**: options to send to micropush. Micropush will interpret this JSON depending on whether it's `$push.android` or `$push.ios`.
 
 Micropush will interpret the `options` object based on the `type` attribute. See below section for details.
 
@@ -83,8 +80,8 @@ Here's an example (Notice that the `options` object follows the [FCM Downstream 
 In case of iOS it's not interpreted literally. Instead there are **3 attributes:**
 
 1. **to**: Must contain two sub-attributes "token" and "topic"
-    - token: Device token to send push to
-    - topic: Your app's bundle id
+    - **token**: Device token to send push to
+    - **topic**: Your app's bundle id
 2. **notification**: This part represents the [aps payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) you send to APNS.
 3. **data**: Custom JSON payload which is accessible as `userInfo` inside [application:didReceiveRemoteNotification:](https://developer.apple.com/documentation/appkit/nsapplicationdelegate/1428430-application)
 
