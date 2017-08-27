@@ -1,0 +1,19 @@
+{
+  "type": "$push.ios",
+  "options": {
+    "to": {
+      "token": "[ios device token]",
+      "topic": "[ios app bundle identifier]"
+    },
+    "data": {
+      "href": {
+        "url": "https://news.ycombinator.com",
+        "view": "web"
+      }
+    },
+    "notification": {
+      "alert": "\uD83D\uDCE7 \u2709 You have a new message",
+      "sound": "default"
+    }
+  }
+}

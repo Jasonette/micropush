@@ -1,0 +1,18 @@
+{
+  "type": "$push.android",
+  "options": {
+    "to": "[ANDROID DEVICE TOKEN]",
+    "data": {
+      "href": {
+        "url": "https://news.ycombinator.com",
+        "view": "web"
+      }
+    },
+    "priority": "high",
+    "notification": {
+      "title": "android",
+      "sound": "default",
+      "body": "this is a message for android"
+    }
+  }
+}
