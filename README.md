@@ -41,15 +41,15 @@ Sending a push is a simple as:
 
 The payload contains two attributes:
 
-- type: Either `$push.android` or `$push.ios`
-- options: options to send to micropush. Micropush will interpret this JSON depending on whether it's `$push.android` or `$push.ios`. See the 
+1. **type**: Either `$push.android` or `$push.ios`
+2. **options**: options to send to micropush. Micropush will interpret this JSON depending on whether it's `$push.android` or `$push.ios`. See the 
   - to
   - data
   - notification
 
 Micropush will interpret the `options` object based on the `type` attribute. See below section for details.
 
-# Micropush options
+# Options syntax
 
 ## Android
 
