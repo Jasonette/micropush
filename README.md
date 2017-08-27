@@ -7,7 +7,7 @@ Dead simple Microservice for push notifications on iOS and Android.
 1. Download
 
     ```
-    git clone https://github.com/
+    git clone https://github.com/Jasonette/micropush.git
     ```
 
 2. Set up
